@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, RouterModule],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, RouterModule, IonContent],
 })
 export class HomePage {
   constructor() {}
