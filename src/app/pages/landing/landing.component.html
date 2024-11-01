@@ -1,23 +1,29 @@
-<ion-content [fullscreen]="true">
-  <div class="container">
-    <div class="header">
-      <img src="../../assets/logo.png" alt="PlantDito Logo" class="logo">
-      <h1 class="title">PlantDito</h1>
+<ion-content [fullscreen]="true" class=" text-center">
+<div class="relative flex-col  bg-cover bg-center flex align items-center h-full  " style="background-image: url(/assets/landing-page-img.png);">
+  <img src="/assets/logo.png" alt="PlantDito Logo" id="logo" class="w-52 h-auto mb-5 pt-10">
+ <div class="flex-grow"></div>
+
+  <div id="container" class="bg-[#2A5528] flex align items-center flex-col text-center w-full h-80 rounded-t-[40px] pt-10">
+    <div id="header">
+      <h1 id="title" class="text-4xl font-bold text-white">PlantDito</h1>
     </div>
 
-    <div class="body">
-      <h2>For a greener future, <br> one seeding at a time</h2>
+    <div id="body" class="">
+      <h2 class="text-lg text-white mb-5" text->For a greener future, <br> one seeding at a time</h2>
       <!-- Show "Swipe to continue" text only if showSwipeText is true -->
-      <p *ngIf="showSwipeText" (click)="togglePopup()">Swipe to continue</p>
+      <p *ngIf="showSwipeText" (click)="togglePopup()" class="flex justify-center items-center text-center rounded-full bg-[#C6EA6E] text-[#2A5528] cursor-pointer hover:underline h-10 w-auto mt-10">Next</p>
     </div>
   </div>
 
   <!-- Popup container -->
-  <div *ngIf="showPopup" class="popup-container">
-    <div class="popup">
-      <h1>{{ popupTitle }}</h1>
-      <p>{{ popupText }}</p>
+  <div *ngIf="showPopup" id="popup-container">
+    <div id="popup">
+      <h1 class="text-[24px] mb-2.5">{{ popupTitle }}</h1>
+      <p class="text-[16px] text-black cursor-pointer hover:underline">{{ popupText }}</p>
       <ion-button expand="block" (click)="handleButtonClick()">{{ buttonText }}</ion-button>
     </div>
   </div>
+
+</div>
+
 </ion-content>
