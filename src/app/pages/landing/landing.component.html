@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="header">
+      <img src="../../assets/logo.png" alt="PlantDito Logo" class="logo">
+      <h1 class="title">PlantDito</h1>
+    </div>
+
+    <div class="body">
+      <h2>For a greener future, <br> one seeding at a time</h2>
+      <!-- Show "Swipe to continue" text only if showSwipeText is true -->
+      <p *ngIf="showSwipeText" (click)="togglePopup()">Swipe to continue</p>
+    </div>
+  </div>
+
+  <!-- Popup container -->
+  <div *ngIf="showPopup" class="popup-container">
+    <div class="popup">
+      <h1>{{ popupTitle }}</h1>
+      <p>{{ popupText }}</p>
+      <ion-button expand="block" (click)="handleButtonClick()">{{ buttonText }}</ion-button>
+    </div>
+  </div>
+</ion-content>
