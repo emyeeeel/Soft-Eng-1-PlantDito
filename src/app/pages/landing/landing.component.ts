@@ -13,13 +13,13 @@ import { filter } from 'rxjs/operators';
   standalone: true,
 })
 export class LandingComponent implements OnInit {
-  showPopup = false;            // Controls the visibility of the popup
-  popupTitle = '';              // Title for the popup
-  popupText = '';               // Text for the popup
-  buttonText = 'Next';          // Text for the button in the popup
-  currentStep = 0;              // Current step of the popup
-  hasVisited = false;           // Track if the user has visited
-  showSwipeText = true;         // Control visibility of the "Swipe to continue" text
+  showPopup = false;           
+  popupTitle = '';             
+  popupText = '';              
+  buttonText = 'Next';      
+  currentStep = 0;            
+  hasVisited = false;          
+  showSwipeText = true; 
 
   constructor(private router: Router) {}
 
@@ -33,8 +33,8 @@ export class LandingComponent implements OnInit {
   }
 
   togglePopup() {
-    this.showPopup = true;       // Show the popup when toggled
-    this.showSwipeText = false;  // Hide the swipe text after clicking
+    this.showPopup = true;      
+    this.showSwipeText = false;  
     this.updatePopupContent();
   }
 
@@ -66,8 +66,8 @@ export class LandingComponent implements OnInit {
 
   // Reset the popup to the initial state
   resetPopup() {
-    this.showPopup = false;     // Hide popup initially
-    this.currentStep = 0;       // Reset current step
-    this.showSwipeText = true;  // Show swipe text on reset
+    this.showPopup = false;    
+    this.currentStep = 0;      
+    this.showSwipeText = true;  
   }
 }
