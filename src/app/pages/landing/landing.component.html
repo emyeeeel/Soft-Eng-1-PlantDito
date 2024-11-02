@@ -12,25 +12,38 @@
     
     <div *ngIf="backgroundImage === 'second'" class="absolute inset-0 bg-black opacity-10"></div>
 
-   
-    <img src="/assets/logo-white.png" alt="PlantDito Logo" id="logo" class="w-52 h-auto mt-14 relative z-10">
+    <img src="/assets/logo-white.png" alt="PlantDito Logo" id="logo"
+     [style.width]="backgroundImage === 'first' ? '65%' : '50%'"
+     [ngClass]="backgroundImage === 'first' ? 'mt-24' : 'mt-12'"
+     class="h-auto relative z-10">
+
 
     <div class="flex-grow"></div>
 
-    <div id="container" class="flex align items-center flex-col text-center mb-28 relative z-10">
+    <div id="container" class="flex align items-center flex-col text-center mb-24 relative z-10">
       <div id="body">
-        <h2 *ngIf="isHeadingVisible" class="font-custom text-4xl font-bold text-white">For a greener future, <br> one seeding at a time</h2>
+        <h2 *ngIf="isHeadingVisible" class="font-custom text-3xl font-normal text-white">For a greener future, <br> one seeding at a time</h2>
         
-        <p *ngIf="showSwipeText" (click)="togglePopup()" class="text-white flex justify-center items-center text-center cursor-pointer hover:underline mt-5 mb-14">Swipe to Continue</p>
+        <p *ngIf="showSwipeText" (click)="togglePopup()" class="text-white flex justify-center items-center text-center cursor-pointer hover:underline mt-5 mb-14" style="font-family: 'epilogue'; font-weight: 200; letter-spacing: 0.05em;">
+          Swipe to continue
+        </p>
+        
       </div>
     </div>
 
     <!-- Popup container -->
     <div *ngIf="showPopup" id="popup-container">
-      <div id="popup" class="bg-[#2A5528] flex align items-center flex-col text-center w-auto h-80 rounded-t-[40px] pt-10 relative z-10">
-        <h1 class="text-4xl text-white font-custom mb-5">{{ popupTitle }}</h1>
-        <p class="text-[16px] text-white cursor-pointer hover:underline mb-10">{{ popupText }}</p>
-        <ion-button fill="clear" class="bg-[#C6EA6E] font-custom font-bold w-44 h-14 rounded-full text-[#255629]" (click)="handleButtonClick()">{{ buttonText }}</ion-button>
+      <div id="popup" class="bg-[#2A5528] flex align items-center flex-col text-center w-auto h-[22rem] rounded-t-[40px] pt-10 relative z-10">
+        <div class="flex flex-col items-center w-full">
+          <h1 class="text-4xl text-white font-custom font-bold mb-5 mt-5">{{ popupTitle }}</h1>
+          <p class="text-[14px] text-white cursor-pointer hover:underline mb-10" style="font-family: 'epilogue'; max-width: 70%;">
+            {{ popupText }}
+          </p>
+        </div>
+        
+        <ion-button fill="clear" class="bg-[#C6EA6E] font-custom font-bold w-44 h-14 rounded-full text-[#255629]" (click)="handleButtonClick()" style="font-family: 'lora';">
+          {{ buttonText }}
+        </ion-button>
       </div>
     </div>
   </div>

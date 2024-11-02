@@ -68,7 +68,7 @@ export class LandingComponent implements OnInit {
 
   get popupVersions() {
     return [
-      { title: 'Planting Made Easy!', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat' },
+      { title: 'Planting Made Easy!', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut quam non risus congue rhoncus quis ac tellus.' },
       { title: 'Growing Stronger!', text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
       { title: 'Harvesting Success', text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
     ];
