@@ -1,29 +1,37 @@
-<ion-content [fullscreen]="true" class=" text-center">
-<div class="relative flex-col  bg-cover bg-center flex align items-center h-full  " style="background-image: url(/assets/landing-page-img.png);">
-  <img src="/assets/logo.png" alt="PlantDito Logo" id="logo" class="w-52 h-auto mb-5 pt-10">
- <div class="flex-grow"></div>
+<ion-content [fullscreen]="true" class="text-center">
+  <div
+    class="relative flex-col bg-cover h-screen bg-center flex align items-center"
+    [ngStyle]="{
+      'background-image':
+        backgroundImage === 'first' ? 'url(/assets/first-bg-img.png)' :
+        backgroundImage === 'second' ? 'url(/assets/2nd-bg-img.png)' :
+        backgroundImage === 'third' ? 'url(/assets/3rd-bg-img.png)' :
+        'url(/assets/4th-bg-img.png)'
+    }"
+  >
+    
+    <div *ngIf="backgroundImage === 'second'" class="absolute inset-0 bg-black opacity-10"></div>
 
-  <div id="container" class="bg-[#2A5528] flex align items-center flex-col text-center w-full h-80 rounded-t-[40px] pt-10">
-    <div id="header">
-      <h1 id="title" class="text-4xl font-bold text-white">PlantDito</h1>
+   
+    <img src="/assets/logo-white.png" alt="PlantDito Logo" id="logo" class="w-52 h-auto mt-14 relative z-10">
+
+    <div class="flex-grow"></div>
+
+    <div id="container" class="flex align items-center flex-col text-center mb-28 relative z-10">
+      <div id="body">
+        <h2 *ngIf="isHeadingVisible" class="font-custom text-4xl font-bold text-white">For a greener future, <br> one seeding at a time</h2>
+        
+        <p *ngIf="showSwipeText" (click)="togglePopup()" class="text-white flex justify-center items-center text-center cursor-pointer hover:underline mt-5 mb-14">Swipe to Continue</p>
+      </div>
     </div>
 
-    <div id="body" class="">
-      <h2 class="text-lg text-white mb-5" text->For a greener future, <br> one seeding at a time</h2>
-      <!-- Show "Swipe to continue" text only if showSwipeText is true -->
-      <p *ngIf="showSwipeText" (click)="togglePopup()" class="flex justify-center items-center text-center rounded-full bg-[#C6EA6E] text-[#2A5528] cursor-pointer hover:underline h-10 w-auto mt-10">Next</p>
+    <!-- Popup container -->
+    <div *ngIf="showPopup" id="popup-container">
+      <div id="popup" class="bg-[#2A5528] flex align items-center flex-col text-center w-auto h-80 rounded-t-[40px] pt-10 relative z-10">
+        <h1 class="text-4xl text-white font-custom mb-5">{{ popupTitle }}</h1>
+        <p class="text-[16px] text-white cursor-pointer hover:underline mb-10">{{ popupText }}</p>
+        <ion-button fill="clear" class="bg-[#C6EA6E] font-custom font-bold w-44 h-14 rounded-full text-[#255629]" (click)="handleButtonClick()">{{ buttonText }}</ion-button>
+      </div>
     </div>
   </div>
-
-  <!-- Popup container -->
-  <div *ngIf="showPopup" id="popup-container">
-    <div id="popup">
-      <h1 class="text-[24px] mb-2.5">{{ popupTitle }}</h1>
-      <p class="text-[16px] text-black cursor-pointer hover:underline">{{ popupText }}</p>
-      <ion-button expand="block" (click)="handleButtonClick()">{{ buttonText }}</ion-button>
-    </div>
-  </div>
-
-</div>
-
 </ion-content>

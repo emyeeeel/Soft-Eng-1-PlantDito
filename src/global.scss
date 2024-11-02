@@ -33,3 +33,23 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.bg-first {
+  background-image: url('/assets/first-bg-img.png');
+}
+
+.bg-second {
+  background-image: url('/assets/2nd-bg-img.png');
+}
+.bg-third{
+  background-image: url('/assets/3rd-bg-img.png');
+}
+.bg-fourth{
+  background-image: url('/assets/4th-bg-img.png');
+}
+@font-face {
+  font-family: 'lora';
+  src: url(/assets/fonts/Lora-VariableFont_wght.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

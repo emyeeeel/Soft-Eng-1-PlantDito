@@ -13,13 +13,16 @@ import { filter } from 'rxjs/operators';
   standalone: true,
 })
 export class LandingComponent implements OnInit {
-  showPopup = false;           
-  popupTitle = '';             
-  popupText = '';              
-  buttonText = 'Next';      
-  currentStep = 0;            
-  hasVisited = false;          
-  showSwipeText = true; 
+  showPopup = false;
+  popupTitle = '';
+  popupText = '';
+  buttonText = 'Next';
+  currentStep = 0;
+  hasVisited = false;
+  showSwipeText = true;
+  isHeadingVisible = true;
+  backgroundImage: string = 'first';
+
 
   constructor(private router: Router) {}
 
@@ -33,9 +36,13 @@ export class LandingComponent implements OnInit {
   }
 
   togglePopup() {
-    this.showPopup = true;      
-    this.showSwipeText = false;  
+    this.showPopup = true;
+    this.showSwipeText = false;
     this.updatePopupContent();
+    this.isHeadingVisible = !this.showPopup;
+    this.backgroundImage =
+      this.backgroundImage === 'first' ? 'second' :
+      'first'; // This will cycle back to the first image
   }
 
   updatePopupContent() {
@@ -47,9 +54,12 @@ export class LandingComponent implements OnInit {
 
   handleButtonClick() {
     const popupVersions = this.popupVersions;
-
     if (this.buttonText === 'Next' && this.currentStep < popupVersions.length - 1) {
       this.currentStep++;
+      this.backgroundImage =
+      this.backgroundImage === 'second' ? 'third' :
+      this.backgroundImage === 'third' ? 'fourth' :
+      'first'; // This will cycle back to the first image
       this.updatePopupContent();
     } else {
       this.router.navigate(['/signup']);
@@ -66,8 +76,8 @@ export class LandingComponent implements OnInit {
 
   // Reset the popup to the initial state
   resetPopup() {
-    this.showPopup = false;    
-    this.currentStep = 0;      
-    this.showSwipeText = true;  
+    this.showPopup = false;
+    this.currentStep = 0;
+    this.showSwipeText = true;
   }
 }
