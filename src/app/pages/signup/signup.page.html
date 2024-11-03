@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div *ngIf="!showPopup" class="default-view">
+    <div class="container">
+      <div class="header">
+        <h1 class="title">PlantDito</h1>
+      </div>
+      <div class="content">
+        <h2>Join an ever-growing community planting</h2>
+        <p class="disclaimer">By applying, you agree to our terms and conditions.</p>
+        <div class="button-group">
+          <ion-button expand="full" color="success" (click)="showSignupPopup()">Sign up for Free</ion-button>
+          <ion-button expand="full" color="danger">Continue with Google</ion-button>
+          <ion-button expand="full" color="dark">Continue with Facebook</ion-button>
+          <ion-button expand="full" color="secondary">Continue with Apple</ion-button>
+          <ion-button expand="full" color="light">Log in</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showPopup" class="popup-view">
+    <img src="../../assets/planting-image.jpg" alt="Planting Image" class="background-image">
+    <div class="popup-content">
+      <h1 class="popup-title">PlantDito</h1>
+      <p class="start-journey-text">Start your journey here</p>
+      <form [formGroup]="signupForm">
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input formControlName="firstName" placeholder="Enter First Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input formControlName="lastName" placeholder="Enter Last Name"></ion-input>
+        </ion-item>
+        <ion-button expand="block" type="submit" (click)="continueSignup()">Continue</ion-button>
+        <ion-button expand="block" fill="clear" (click)="hidePopup()">Back</ion-button>
+      </form>
+    </div>
+  </div>
 </ion-content>
