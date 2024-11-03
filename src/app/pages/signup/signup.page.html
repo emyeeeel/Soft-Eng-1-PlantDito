@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
-  <div *ngIf="!showPopup" class="default-view">
+  <div *ngIf="!showPopup && !showSecondPopup" class="default-view">
     <div class="container">
       <div class="header">
         <h1 class="title">PlantDito</h1>
       </div>
       <div class="content">
-        <h2>Join an ever-growing community planting</h2>
-        <p class="disclaimer">By applying, you agree to our terms and conditions.</p>
+        <h2>Join an ever-growing community planting</h2><br><br>
+        <p class="disclaimer">By clicking Sign up for Free or Continue, you agree to the PlantDito User Agreement. Privacy Policy. and Cookie Policy</p>
         <div class="button-group">
           <ion-button expand="full" color="success" (click)="showSignupPopup()">Sign up for Free</ion-button>
           <ion-button expand="full" color="danger">Continue with Google</ion-button>
@@ -19,22 +19,52 @@
   </div>
 
   <div *ngIf="showPopup" class="popup-view">
-    <img src="../../assets/planting-image.jpg" alt="Planting Image" class="background-image">
     <div class="popup-content">
       <h1 class="popup-title">PlantDito</h1>
       <p class="start-journey-text">Start your journey here</p>
       <form [formGroup]="signupForm">
         <ion-item>
-          <ion-label position="floating">First Name</ion-label>
+          <ion-label position="floating">First Name</ion-label><br>
           <ion-input formControlName="firstName" placeholder="Enter First Name"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Last Name</ion-label>
+          <ion-label position="floating">Last Name</ion-label><br>
           <ion-input formControlName="lastName" placeholder="Enter Last Name"></ion-input>
         </ion-item>
-        <ion-button expand="block" type="submit" (click)="continueSignup()">Continue</ion-button>
-        <ion-button expand="block" fill="clear" (click)="hidePopup()">Back</ion-button>
+        <ion-button expand="block" (click)="continueSignup()">Continue</ion-button>
       </form>
+      <ion-button fill="clear" (click)="backToMain()">Back</ion-button> <!-- Back button below Continue -->
     </div>
   </div>
+
+  <div *ngIf="showSecondPopup" class="popup-view">
+    <div class="popup-content">
+      <h1 class="popup-title">PlantDito</h1>
+      <p class="start-journey-text">Complete your signup</p>
+      <form [formGroup]="secondSignupForm" (ngSubmit)="completeSignup()">
+        <ion-item>
+          <ion-label position="floating">Email*</ion-label><br>
+          <ion-input formControlName="email" placeholder="Enter Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password*</ion-label><br>
+          <ion-input  formControlName="password" placeholder="Enter Password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Repeat Password*</ion-label><br>
+          <ion-input formControlName="repeatPassword" placeholder="Repeat Password"></ion-input>
+        </ion-item>
+        
+        <!-- Remember me Checkbox -->
+        <ion-item>
+          <ion-checkbox formControlName="rememberMe"></ion-checkbox>
+          <ion-label>Remember me. <a href="">Learn more</a></ion-label>
+        </ion-item>
+  
+        <ion-button expand="block" type="submit">Continue</ion-button>
+      </form>
+      <ion-button fill="clear" (click)="backToFirstPopup()">Back</ion-button> <!-- Back button below Continue -->
+    </div>
+  </div>
+  
 </ion-content>
