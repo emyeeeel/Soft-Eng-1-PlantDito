@@ -12,10 +12,10 @@ import {} from '@angular/router';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonLabel, IonNote, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class SignupPage implements OnInit {
-  showPopup = false;       // Control the first popup visibility
-  showSecondPopup = false; // Control the second popup visibility
-  signupForm!: FormGroup;  // Form group for the first popup
-  secondSignupForm!: FormGroup; // Form group for the second popup
+  showPopup = false;      
+  showSecondPopup = false; 
+  signupForm!: FormGroup;  
+  secondSignupForm!: FormGroup; 
 
   constructor(private fb: FormBuilder) {}
 
@@ -28,9 +28,9 @@ export class SignupPage implements OnInit {
 
     // Initialize second signup form without validators
     this.secondSignupForm = this.fb.group({
-      email: [''], // No Validators
-      password: [''], // No Validators
-      repeatPassword: [''] // No Validators
+      email: [''], 
+      password: [''], 
+      repeatPassword: ['']
     });
   }
 
@@ -41,27 +41,27 @@ export class SignupPage implements OnInit {
 
   // Function to hide the first popup and show the second popup
   continueSignup() {
-    this.showPopup = false;      // Hide the first popup
-    this.showSecondPopup = true; // Show the second popup
+    this.showPopup = false;      
+    this.showSecondPopup = true;
   }
 
   // Function to hide the first popup and navigate back to the main display
   backToMain() {
-    this.showPopup = false; // Hide the first popup
+    this.showPopup = false; 
     this.showSecondPopup = false; // Ensure the second popup is also hidden
   }
 
   // Function to hide the second popup and show the first popup
   backToFirstPopup() {
-    this.showSecondPopup = false; // Hide the second popup
-    this.showPopup = true; // Show the first popup again
+    this.showSecondPopup = false; 
+    this.showPopup = true; 
   }
 
   // Function to complete the signup process
   completeSignup() {
     console.log('Second Signup form submitted:', this.secondSignupForm.value);
     // Logic for completing the signup
-    this.showSecondPopup = false; // Hide the second popup after submission
+    this.showSecondPopup = false;
   }
 
  

@@ -23,5 +23,9 @@ export const routes: Routes = [
     path: 'landing',
     component: LandingComponent
   },
+  {
+    path: 'splash',
+    loadChildren: () => import('../splash/splash.module').then(m => m.SplashPageModule)
+  },
 ];
 

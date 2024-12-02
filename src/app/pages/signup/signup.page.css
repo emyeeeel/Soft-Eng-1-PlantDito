@@ -1,0 +1,78 @@
+.default-view .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+}
+.default-view .header {
+  margin-bottom: 32px;
+}
+.default-view .title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+.default-view .content {
+  text-align: center;
+}
+.default-view h2 {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 24px;
+}
+.default-view .disclaimer {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 48px;
+}
+.default-view .button-group {
+  width: 100%;
+}
+.default-view .button-group ion-button {
+  margin-top: 16px;
+}
+
+.popup-view {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.popup-view .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.7;
+}
+.popup-view .popup-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.popup-view .popup-title {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.popup-view .start-journey-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+.popup-view ion-item {
+  --background: transparent;
+  --color: black;
+}
+.popup-view ion-input {
+  --placeholder-opacity: 0.5;
+}/*# sourceMappingURL=signup.page.css.map */
