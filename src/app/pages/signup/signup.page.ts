@@ -17,6 +17,7 @@ export class SignupPage implements OnInit {
   signupForm!: FormGroup;  // Form group for the first popup
   secondSignupForm!: FormGroup; // Form group for the second popup
 
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -64,5 +65,5 @@ export class SignupPage implements OnInit {
     this.showSecondPopup = false; // Hide the second popup after submission
   }
 
- 
+
 }
