@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonLabel,IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonItem, IonNote } from '@ionic/angular/standalone';
-import {} from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +17,7 @@ export class SignupPage implements OnInit {
   signupForm!: FormGroup;  
   secondSignupForm!: FormGroup; 
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     // Initialize first signup form without validators
@@ -34,6 +34,9 @@ export class SignupPage implements OnInit {
     });
   }
 
+  goToLoginPage(){
+    this.router.navigate(['/login']);
+  }
   // Show the first signup popup when clicking 'Sign up for Free'
   showSignupPopup() {
     this.showPopup = true;
