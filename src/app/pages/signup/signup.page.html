@@ -1,143 +1,94 @@
 <ion-content [fullscreen]="true">
-  <div id="container"  *ngIf="!showPopup && !showSecondPopup" class="min-h-screen bg-gray-100">
+  <div id="container" *ngIf="!showPopup && !showSecondPopup" class="min-h-screen bg-gray-100">
     <div id="header"
-    class="relative flex justify-center items-center bg-cover bg-center min-h-[300px]"
-    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, #f4f4f4 100%), url('/assets/1st-img-signup.png');">
-</div>
+      class="relative flex justify-center items-center bg-cover bg-center min-h-[300px]"
+      style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, #f4f4f4 100%), url('/assets/1st-img-signup.png');">
+    </div>
 
     <div id="content" class="p-2">
       <h1 class="font-lora text-center text-7xl"><span class="text-[#86BA43]">Plant</span><span class="text-[#295527]">Dito</span></h1>
       <h2 class="font-epilogue text-center text-base font-medium ">Join an ever-growing community <br> planting.</h2>
-      <p id=" disclaimer" class="font-epilogue text-center text-xs pb-5  mt-10">
+      <p id="disclaimer" class="font-epilogue text-center text-xs pb-5 mt-10">
         By clicking Sign up for Free or Continue, you agree to the PlantDito <span class="text-[#86BA43] cursor-pointer">User Agreement, Privacy Policy,</span> and <span class="text-[#86BA43] cursor-pointer">Cookie Policy.</span>
       </p>
       <div id="button-group" class="flex items-center justify-center flex-col gap-2">
-        <ion-button class="custom-button rounded-full w-72 h-auto bg-[#2A5528] text-white" fill="clear" (click)="showSignupPopup()">
-          Sign up for Free
-        </ion-button>
-        <ion-button class="custom-button rounded-full w-72 h-auto text-black border-2 border-black" fill="clear">
-          Continue with Google
-        </ion-button>
-        <ion-button class="custom-button rounded-full w-72 h-auto text-black border-2 border-black" fill="clear">
-          Continue with Facebook
-        </ion-button>
-        <ion-button class="custom-button rounded-full w-72 h-auto text-black border-2 border-black" fill="clear">
-          Continue with Apple
-        </ion-button>
+        <ion-button class="custom-button rounded-full w-72 h-auto bg-[#2A5528] text-white" fill="clear" (click)="showSignupPopup()">Sign up for Free</ion-button>
+        <ion-button class="custom-button rounded-full w-72 h-auto text-black border-2 border-black" fill="clear">Continue with Google</ion-button>
+        <ion-button class="custom-button rounded-full w-72 h-auto text-black border-2 border-black" fill="clear">Continue with Facebook</ion-button>
+        <ion-button class="custom-button rounded-full w-72 h-auto text-black border-2 border-black" fill="clear">Continue with Apple</ion-button>
         <ion-button fill="clear" class="text-[#255629]" (click)="goToLoginPage()">Log in</ion-button>
       </div>
     </div>
   </div>
 
   <div *ngIf="showPopup" class="fixed inset-0 flex flex-col bg-gray-100 mb-32">
-    <!-- Background Image -->
-    <div
-      class="absolute inset-0 bg-top z-0"
-      style="background-image: url('/assets/2nd-img-signup.png');">
-    </div>
+    <div class="absolute inset-0 bg-top z-0" style="background-image: url('/assets/2nd-img-signup.png');"></div>
 
-    <!-- Popup Content at the Bottom -->
-    <div
-      id="popup-content"
-      class="relative bg-white text-white p-6 rounded-t-3xl w-full max-w-lg mx-auto mt-auto z-10">
-      <!-- Popup Title -->
+    <div id="popup-content" class="relative bg-white text-white p-6 rounded-t-3xl w-full max-w-lg mx-auto mt-auto z-10">
       <h1 id="popup-title" class="font-lora text-3xl font-bold ml-5">
         <span class="text-[#86BA43]">Plant</span>
         <span class="text-[#295527]">Dito</span>
       </h1>
-
       <p id="start-journey-text" class="font-lora text-black text-2xl font-medium ml-5 mt-2">
         Start your journey here
       </p>
 
-      <!-- Form -->
       <form [formGroup]="signupForm" class="space-y-4 mt-4">
         <div>
           <label for="firstName" class="block text-black font-lora text-base font-bold mb-1">First Name</label>
-          <input id="firstName"
-                 type="text"
-                 formControlName="firstName"
-                 placeholder="First Name"
-                 class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
+          <input id="firstName" type="text" formControlName="firstName" placeholder="First Name" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
         </div>
 
         <div>
           <label for="lastName" class="text-black block font-lora text-base font-bold mb-1">Last Name</label>
-          <input id="lastName"
-                 type="text"
-                 formControlName="lastName"
-                 placeholder="Last Name"
-                 class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
+          <input id="lastName" type="text" formControlName="lastName" placeholder="Last Name" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
         </div>
 
-        <button type="button"
-                (click)="continueSignup()"
-                class="w-full py-2 bg-[#295527] text-white font-medium rounded-full hover:bg-[#295527] focus:outline-none focus:ring-2 focus:ring-[#295527] focus:ring-offset-2 ">
-          Continue
-        </button>
+        <button type="button" (click)="continueSignup()" class="w-full py-2 bg-[#295527] text-white font-medium rounded-full hover:bg-[#295527] focus:outline-none focus:ring-2 focus:ring-[#295527] focus:ring-offset-2">Continue</button>
       </form>
-
-      <!-- Back Button -->
-
     </div>
   </div>
 
+  <div *ngIf="showSecondPopup" id="popup-view" class="fixed inset-0 flex flex-col bg-gray-100">
+    <div class="absolute inset-0 bg-top z-0" style="background-image: url('/assets/3rd-image-signup.png');"></div>
 
-
-  <div *ngIf="showSecondPopup" id="popup-view"  class="fixed inset-0 flex flex-col bg-gray-100 ">
-    <div
-      class="absolute inset-0 bg-top z-0"
-      style="background-image: url('/assets/3rd-image-signup.png');">
-    </div>
-
-
-    <div id="popup-content" class="relative bg-white text-white p-6 rounded-t-3xl w-full max-w-lg mx-auto mt-auto z-10">
-
+    <div id="second-popup-content" class="relative bg-white text-white p-6 rounded-t-3xl w-full max-w-lg mx-auto mt-auto z-10">
       <h1 id="popup-title" class="font-lora text-3xl font-bold ml-5">
         <span class="text-[#86BA43]">Plant</span>
         <span class="text-[#295527]">Dito</span>
       </h1>
-
       <p id="start-journey-text" class="font-lora text-black text-2xl font-medium ml-5 mt-2">
         Start your journey here
       </p>
 
       <form [formGroup]="secondSignupForm" (ngSubmit)="completeSignup()">
-       <div>
-        <label for="email" class="text-black block font-lora text-base font-bold mb-1 mt-4">Email*</label>
-        <input formControlName="email" placeholder="Enter Email" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
-       </div>
+        <div>
+          <label for="email" class="text-black block font-lora text-base font-bold mb-1 mt-4">Email*</label>
+          <input formControlName="email" placeholder="Enter Email" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
+        </div>
+        <div *ngIf="secondSignupForm.get('email')?.touched && secondSignupForm.get('email')?.errors?.['email']"
+        class="mt-1 text-sm text-red-600">
+     Please enter a valid email
+   </div>
+        <div>
+          <label for="password" class="text-black block font-lora text-base font-bold mb-1 mt-4">Password*</label>
+          <input formControlName="password" type="password" placeholder="Must be more than 8 characters" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
+        </div>
 
-       <div>
-        <label for="email" class="text-black block font-lora text-base font-bold mb-1 mt-4">Password*</label>
-        <input formControlName="Password" placeholder="Must be more than 8 characters" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
-       </div>
+        <div>
+          <label for="repeatPassword" class="text-black block font-lora text-base font-bold mb-1 mt-4">Repeat Password*</label>
+          <input formControlName="repeatPassword" type="password" placeholder="Must be more than 8 characters" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
+        </div>
 
-       <div>
-        <label for="email" class="text-black block font-lora text-base font-bold mb-1 mt-4">Repeat Password*</label>
-        <input formControlName="Password" placeholder="Must be more than 8 characters" class="w-full px-4 py-2 bg-white text-black rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-[#86BA43]">
-
-       </div>
-        <!-- Remember me Checkbox -->
         <div class="flex items-center justify-center mt-8 mb-2">
-          <input
-            checked
-            id="checked-checkbox"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 text-[#2A5528] bg-gray-100 border-gray-300 rounded focus:ring-[#2A5528] focus:ring-2 dark:bg-[#2A5528] dark:border-[#86BA43]"
-          >
+          <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-[#2A5528] bg-gray-100 border-gray-300 rounded focus:ring-[#2A5528] focus:ring-2 dark:bg-[#2A5528] dark:border-[#86BA43]">
           <label for="checked-checkbox" class="ml-2 text-xs font-lora font-bold text-gray-700">
             Remember me. <a href="#" class="text-[#86BA43] text-xs font-lora font-bold underline">Learn more</a>
           </label>
         </div>
 
-
-
-        <ion-button  fill="clear"class="w-full py-2 bg-[#295527] text-white font-medium rounded-full hover:bg-[#295527] focus:outline-none focus:ring-2 focus:ring-[#295527] focus:ring-offset-2 mb-20  " type="submit">Continue</ion-button>
+        <ion-button fill="clear" class="w-full py-2 bg-[#295527] text-white font-medium rounded-full hover:bg-[#295527] focus:outline-none focus:ring-2 focus:ring-[#295527] focus:ring-offset-2 mb-20" type="submit">Continue</ion-button>
       </form>
-
     </div>
   </div>
-
 </ion-content>

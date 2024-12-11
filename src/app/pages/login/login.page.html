@@ -1,47 +1,32 @@
 <div class="min-h-screen bg-gray-100 flex flex-col items-center">
-  <!-- Top Background Image Section -->
   <div class="w-full h-1/4 bg-cover bg-center relative" style="background-image: url('../../../assets/2nd-bg-img.png');">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-white"></div>
   </div>
 
-  <!-- Content Section -->
   <div class="w-full max-w-md mx-auto -mt-15 px-6">
-    <!-- Welcome Text -->
     <h1 class="text-4xl font-bold text-gray-800 text-center mb-2" style="font-family: 'lora';">Welcome back to</h1>
     <div class="flex justify-center">
       <img src="../../../assets/plantdito-logo-green.png" alt="PlantDito Logo" class="h-20">
     </div>
 
-    <!-- Social Buttons -->
-    <div class="flex justify-between mt-6 space-x-4">
-      <button class="flex-1 bg-black text-white flex items-center justify-center py-2 rounded-full">
-        <img src="../../../assets/icon/appleicon.png" alt="Apple Logo" class="h-5">
-      </button>
-      <button class="flex-1 bg-blue-600 text-white flex items-center justify-center py-2 rounded-full">
-        <img src="../../../assets/icon/fbicon.png" alt="Facebook Logo" class="h-7">
-      </button>
-      <button class="flex-1 bg-[#eeeeef] text-black flex items-center justify-center py-2 rounded-full">
-        <img src="../../../assets/icon/googleicon.png" alt="Google Logo" class="h-5">
-      </button>
-    </div>
-
-    <!-- Divider -->
-    <div class="flex items-center my-6">
-      <div class="flex-grow h-px bg-gray-600"></div>
-      <span class="px-3 text-gray-700 text-sm">or</span>
-      <div class="flex-grow h-px bg-gray-600"></div>
-    </div>
-
-    <!-- Input Fields -->
-    <form class="space-y-6">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-6">
       <div>
-        <label for="username" class="block text-gray-700 font-medium" style="font-family: 'lora';">Username/Email</label>
+        <label for="email" class="block text-gray-700 font-medium" style="font-family: 'lora';">Username/Email</label>
         <input
           type="text"
-          id="username"
-          class="w-full mt-2 px-4 py-2 bg-white border border-black rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+          id="email"
+          formControlName="email"
+          class="w-full mt-2 px-4 py-2 text-black bg-white border border-black rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
+      class="mt-1 text-sm text-red-600">
+   Email is required
+ </div>
+ <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']"
+      class="mt-1 text-sm text-red-600">
+   Please enter a valid email
+ </div>
       <div>
         <label for="password" class="block text-gray-700 font-medium flex justify-between" style="font-family: 'lora';">
           Password
@@ -50,12 +35,14 @@
         <input
           type="password"
           id="password"
-          class="w-full mt-2 px-4 py-2 bg-white border border-black rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+          formControlName="password"
+          class="w-full mt-2 px-4 py-2 text-black bg-white border border-black rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
-
-      <!-- Login Button -->
-       <br>
+      <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+      class="mt-1 text-sm text-red-600">
+   Password is required
+ </div>
       <button
         type="submit"
         class="w-full bg-green-800 text-white py-3 rounded-full text-lg hover:bg-green-900 focus:ring-2 focus:ring-green-500 mt-6" style="font-family: 'lora';"
@@ -64,10 +51,9 @@
       </button>
     </form>
 
-    <!-- Footer Links -->
     <div class="mt-6 text-center">
       <span class="text-gray-700">Don't have an account?</span>
-      <a href="#" class="text-[#86ba43] hover:text-[#86ba43] font-semibold">       Sign up</a>
+      <a [routerLink]="['/signup']" class="text-[#86ba43] hover:text-[#86ba43] font-semibold">Sign up</a>
     </div>
   </div>
 </div>
