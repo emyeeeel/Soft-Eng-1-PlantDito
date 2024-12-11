@@ -27,5 +27,9 @@ export const routes: Routes = [
     path: 'splash',
     loadChildren: () => import('../splash/splash.module').then(m => m.SplashPageModule)
   },
+  {
+    path: 'aichat',
+    loadComponent: () => import('../aichat/aichat.page').then(m => m.AichatPage)
+  }
 ];
 

@@ -68,9 +68,9 @@ export class LandingComponent implements OnInit {
 
   get popupVersions() {
     return [
-      { title: 'Planting Made Easy!', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut quam non risus congue rhoncus quis ac tellus.' },
-      { title: 'Growing Stronger!', text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-      { title: 'Harvesting Success', text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+      { title: 'Planting Made Easy!', text: 'Start your farming journey with easy-to-follow planting guides and crop recommendations tailored to your location.' },
+      { title: 'Growing Stronger!', text: 'Optimize your crops’ growth with personalized insights on soil, water, and climate conditions.' },
+      { title: 'Harvesting Success', text: 'Maximize your yield with our harvest tools, ensuring your crops are ready for the best possible harvest.' },
     ];
   }
 

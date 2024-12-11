@@ -1,0 +1,82 @@
+<div class="min-h-screen flex flex-col bg-gray-100">
+    <!-- Header -->
+    <header class="bg-green-900 text-white flex items-center px-4 py-10">
+        <!-- Menu Icon -->
+        <div class="mr-auto">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </div>
+        <!-- Title -->
+        <h1 class="text-center flex-1 text-lg font-semibold">ChatBot</h1>
+    </header>
+
+    <!-- Content -->
+    <main class="flex-1 px-6 py-">
+        <!-- Icon and Example Header -->
+        <div class="text-center mb-6">
+            <!-- Small Logo -->
+            <div class="inline-block bg-green-500 p-3 rounded-full">
+                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-3.866-1.567-7-3.5-7S5 7.134 5 11s1.567 7 3.5 7S12 14.866 12 11z" />
+                </svg>
+            </div>
+            <!-- Header Text -->
+            <h2 class="mt-3 text-xl font-bold text-gray-800">Example</h2>
+        </div>
+
+        <!-- Question Buttons -->
+        <div class="space-y-4 mx-6"> <!-- Added `mx-6` for side margins -->
+            <!-- Question 1 -->
+            <div class="bg-green-900 text-white rounded-lg p-4">
+                <p class="mb-4">"Why is it important to assess the compatibility between crops and their growing location in sustainable farming?"</p>
+                <button class="bg-green-300 p-2 rounded-md flex justify-center items-center mx-auto">
+                    <svg class="w-5 h-5 text-green-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4l16 8-16 8V4z" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Question 2 -->
+            <div class="bg-green-900 text-white rounded-lg p-4">
+                <p class="mb-4">"How can I improve the health of my soil without using chemical fertilizers?"</p>
+                <button class="bg-green-300 p-2 rounded-md flex justify-center items-center mx-auto">
+                    <svg class="w-5 h-5 text-green-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4l16 8-16 8V4z" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Question 3 -->
+            <div class="bg-green-900 text-white rounded-lg p-4">
+                <p class="mb-4">"How can I extend the shelf life of my harvested crops to reduce waste?"</p>
+                <button class="bg-green-300 p-2 rounded-md flex justify-center items-center mx-auto">
+                    <svg class="w-5 h-5 text-green-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4l16 8-16 8V4z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Carousel Indicator -->
+        <div class="flex justify-center mt-12 space-x-2"> <!-- Adjusted `mt-12` for more spacing -->
+            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-gray-400 rounded-full"></div>
+            <div class="w-3 h-3 bg-gray-400 rounded-full"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white flex items-center px-4 py-10">
+        <!-- Input Field -->
+        <input
+            type="text"
+            placeholder="Send a message."
+            class="flex-1 bg-white text-gray-800 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"  
+        />
+        <!-- Send Button -->
+        <button class="ml-3">
+            <svg class="w-6 h-6 text-green-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4l16 8-16 8V4z" />
+            </svg>
+        </button>
+    </footer>
+</div>
