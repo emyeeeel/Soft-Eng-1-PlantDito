@@ -19,6 +19,7 @@ export class SignupPage implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router) {}
 
+
   ngOnInit() {
     // Initialize first signup form without validators
     this.signupForm = this.fb.group({
@@ -67,5 +68,5 @@ export class SignupPage implements OnInit {
     this.showSecondPopup = false;
   }
 
- 
+
 }

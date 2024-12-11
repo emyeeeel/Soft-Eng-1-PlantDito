@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        custom:['lora']
+        lora:['lora'],
+        epilogue:['epilogue']
       }
     }
   },
